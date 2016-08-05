@@ -10,4 +10,3 @@ class IntStruct(ctypes.Structure):
     def __repr__(self):
         return ("IntStruct(ob_digit={self.ob_digit}, "
                 "refcount={self.ob_refcnt})").format(self=self)
-

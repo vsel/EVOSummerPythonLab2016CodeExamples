@@ -8,6 +8,7 @@ from sqlalchemy.orm import sessionmaker
 
 Base = declarative_base()
 
+
 @contextmanager
 def session_scope():
     # __init__
@@ -21,12 +22,13 @@ def session_scope():
         session.commit()
     except Exception as e:
         session.rollback()
-        raise e
+        # raise e
     else:
         print('No problem detected')
     finally:
         print('Session closed')
         session.close()
+
 
 class User(Base):
     __tablename__ = 'users'
@@ -43,7 +45,7 @@ class User(Base):
 
 with session_scope() as session:
     ed_user = User(id=1000, name='ed', fullname='Ed Jones', password='edspassword')
-    #ed_user2 = User(id=1000, name='ed', fullname='Ed Jones', password='edspassword')
+    ed_user2 = User(id=1000, name='ed', fullname='Ed Jones', password='edspassword')
     session.add(ed_user)
 from sqlalchemy import inspect
 insp = inspect(ed_user)

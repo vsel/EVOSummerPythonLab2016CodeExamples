@@ -6,4 +6,5 @@ for dessert in list_of_desserts:
     else:
         print('Not a cake')
 else:
+    # to check that something not find
     print('The cake is a lie')

@@ -14,6 +14,7 @@ while counter < 50:
     counter += 1
     break
 else:
+    # to check that something stoped while
     result = 'Not done'
 
 print(result)
