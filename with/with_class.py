@@ -9,9 +9,12 @@ class IntChanger:
     def __enter__(self):
         ctypes.cast(self.statement_address, ctypes.POINTER(ctypes.c_char))[3 * 8] \
             = b'\x2A'
-        return 'But we had a {}!!!'.format(int.from_bytes(self.statement_to_change, byteorder='little'))
+        return 'But we had a {}!!!'.format(
+            int.from_bytes(self.statement_to_change, byteorder='little')
+        )
 
-    # Why does this exception_type, exception_value, traceback needed I will tell you later
+    # Why does this exception_type, exception_value, traceback needed
+    # I will tell you later
     def __exit__(self, exception_type, exception_value, traceback):
         ctypes.cast(self.statement_address, ctypes.POINTER(ctypes.c_char))[3 * 8] \
             = self.statement_to_change
