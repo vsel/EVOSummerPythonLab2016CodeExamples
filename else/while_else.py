@@ -1,8 +1,8 @@
 counter = 0
 result = 'Not done'
-while counter < 50:
+while counter < 10:
     counter += 1
-    print(counter)
+    print(counter, end=', ')
 else:
     result = 'Done'
 
@@ -10,11 +10,13 @@ print(result)
 
 counter = 0
 result = 'Not done'
-while counter < 50:
+while counter < 10:
     counter += 1
-    break
+    print(counter, end=', ')
+    if counter > 2:
+        break
 else:
     # to check that something stoped while
-    result = 'Not done'
+    result = 'Done'
 
 print(result)

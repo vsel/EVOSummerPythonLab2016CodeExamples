@@ -11,11 +11,10 @@ Base = declarative_base()
 
 @contextmanager
 def session_scope():
-    # __init__
+    # __enter__
     engine = create_engine("sqlite:///test.db")
     # Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
-    # __enter__
     try:
         yield Session()
     # __exit__
